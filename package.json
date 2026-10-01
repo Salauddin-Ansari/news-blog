@@ -1,11 +1,19 @@
 {
+<<<<<<< HEAD
   "name": "Virelix-news",
+=======
+  
+>>>>>>> a8ba4482a7c0ae673ec07b9072e3a0d90e43e7e8
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
     
     "start": "node app.js"
+=======
+    
+>>>>>>> a8ba4482a7c0ae673ec07b9072e3a0d90e43e7e8
   },
   "keywords": [],
   "author": "",
