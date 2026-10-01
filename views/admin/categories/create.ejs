@@ -1,0 +1,34 @@
+<div id="admin-content">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <h1 class="admin-heading">Add New Category</h1>
+              </div>
+              <div class="col-md-6 mx-auto">
+                  <div class="card">
+                    <h5 class="card-header">Add New Category</h5>
+                    <div class="card-body">
+                      <% if (error) { %>
+                        <div class="alert alert-danger" role="alert"><%= error %></div>
+                      <% } %>
+                      <!-- Form Start -->
+                      <form action="/admin/add-category" method="POST" autocomplete="off">
+                        <div class="mb-3">
+                          <label for="" class="form-label">Category Name</label>
+                          <input type="text" name="name" class="form-control" placeholder="Category Name" value="<%= formData.name || '' %>" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="" class="form-label">Description</label>
+                          <textarea name="description" class="form-control"><%= formData.description || '' %></textarea>
+                        </div>
+                        <input type="submit" name="save" class="btn btn-primary" value="Save" />
+                      </form>
+                      <!-- Error Message -->
+                         <%- include('../partials/error') %> 
+                      <!-- Error Message -->
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
