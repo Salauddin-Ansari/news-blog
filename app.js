@@ -75,6 +75,17 @@ app.locals.settings = {
 
 app.get("/healthz", (req, res) => res.status(200).send("ok"));
 
+// Do not let Mongoose queue page requests for 10 seconds when the database is
+// not connected. Keep /healthz available so Render can still probe the web
+// process while its database configuration is being corrected.
+app.use((req, res, next) => {
+  if (mongoose.connection.readyState === 1) return next();
+
+  res
+    .status(503)
+    .send("Database unavailable. Check the MONGODB_URI setting and MongoDB Atlas network access.");
+});
+
 // Routes
 
 app.use("/admin", (req, res, next) => {
